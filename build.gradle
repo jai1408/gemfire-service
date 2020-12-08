@@ -1,0 +1,31 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.0'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+    id "io.freefair.lombok" version "5.3.0"
+}
+
+group = 'com.jai.cache'
+version = '1.0'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release" }
+}
+
+bootJar {
+    archiveFileName = 'spring-cache.war'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile 'org.springframework.boot:spring-boot-starter-data-gemfire:2.1.0.RELEASE'
+}
+
+test {
+    useJUnitPlatform()
+}
